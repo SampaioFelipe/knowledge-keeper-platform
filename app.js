@@ -28,11 +28,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
+  root: path.join(__dirname, 'public/'),
+  src: 'stylesheets/sass',
+  dest: '/stylesheets',
+  debug: true,
+  outputStyle: 'compressed',
   indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: true
+  sourceMap: true,
+  prefix: '/stylesheets/'
 }));
+
+// Static file folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
