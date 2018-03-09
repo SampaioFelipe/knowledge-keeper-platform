@@ -1,0 +1,50 @@
+{% extends "base/index.html" %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="content_tools/content-tools.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/content_editor.css">
+
+    <style>
+        .author {
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                <div id="content-title" class="title" contenteditable="true" data-placeholder="Título"></div>
+
+                <div id="content-subtitle"class="subtitle" contenteditable="true" data-placeholder="Subtítulo"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            
+            <a id="edit_button" class="circle-button is-link is-floating is-bottom-left"><i class="fa fa-edit"></i></a>
+
+            <div id="hidden_buttons_container" class="is-floating is-bottom-left is-hidden">
+                <a id="save_button" class="circle-button is-success"><i class="fa fa-check"></i></a>
+                <a id="cancel_button" class="circle-button is-danger"><i class="fa fa-times"></i></a>
+            </div>
+
+            <div class="content" data-editable data-name="main-content">
+                <h1>
+                    Hello World
+                </h1>
+                <p>
+                    My first website with <strong>Bulma</strong>!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="content_tools/content-tools.min.js"></script>
+    <script src="javascripts/content_editor.js"></script>
+{% endblock %}

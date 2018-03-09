@@ -24,7 +24,7 @@ app.use('/content_tools', express.static(__basedir + '/node_modules/ContentTools
 /**
  * Routing mapping
  */
-app.use('/', routes);
+app.use('/', routes(app));
 
 
 // catch 404 and forward to error handler

@@ -2,11 +2,13 @@
 var path = require('path');
 
 var config = require('../config');
+
 /**
- * Global variables 
+ * Global variables
  */
 global.__basedir = config.basedir;
 global.__appdir = config.appdir;
+
 /**
  * Initialize the app
  */
