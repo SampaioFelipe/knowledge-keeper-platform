@@ -1,10 +1,17 @@
 #!/usr/bin/env node
+var path = require('path');
 
+var config = require('../config');
 /**
- * Module dependencies.
+ * Global variables 
  */
-
+global.__basedir = config.basedir;
+global.__appdir = config.appdir;
+/**
+ * Initialize the app
+ */
 var app = require('../app');
+
 var debug = require('debug')('knowledge-keeper-platform:server');
 var http = require('http');
 
