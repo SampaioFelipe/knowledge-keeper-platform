@@ -13,6 +13,7 @@ module.exports = function (app) {
 
     app.use(logger('dev'));
     app.use(cookieParser());
+    
     app.use(bodyParser.json()); // for parsing application/json
     app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/xwww-
     app.use(multer().array()); // for parsing multipart/form-data

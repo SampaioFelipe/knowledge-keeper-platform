@@ -1,0 +1,8 @@
+{
+    "nav": {
+        "home": "Home",
+        "new_topic": "New Topic",
+        "new_content": "New Content",
+        "login": "Login"
+    }
+}
