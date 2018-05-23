@@ -1,11 +1,13 @@
 #!/usr/bin/env node
-var path = require('path');
+require('dotenv').config();
 
+var path = require('path');
 var config = require('../config');
 
 /**
  * Global variables
  */
+
 global.__basedir = config.basedir;
 global.__appdir = config.appdir;
 
@@ -14,26 +16,23 @@ global.__appdir = config.appdir;
  */
 var app = require('../app');
 
-var debug = require('debug')('knowledge-keeper-platform:server');
+var debug = require('debug')('app');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
 var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -61,7 +60,6 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -89,7 +87,6 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'

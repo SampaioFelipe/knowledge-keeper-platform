@@ -1,5 +1,13 @@
+var middlewares = require('./middlewares');
+var view_engine = require('./view-engine');
+var auth = require('./auth');
+
 module.exports = {
     db: require('./database'),
-    middlewares: require('./middlewares'),
-    view_engine: require('./view-engine')
+
+    setup: function (app) {
+        middlewares(app);
+        view_engine(app);
+    }
 }
+

@@ -3,9 +3,9 @@ var router = express.Router();
 
 var minify = require('html-minifier').minify;
 
-// var elastic = require('../models/elasticsearch'); //elastic
 
 router.get('/', function (req, res) {
+
     res.render('content-editor/index', { title: 'Content Editor' });
 })
 
@@ -31,7 +31,5 @@ router.post('/save-my-page', function (req, res, next) {
 
 });
 
-module.exports = function (app) {
+module.exports = router;
 
-    return router;
-}
