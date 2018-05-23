@@ -21,7 +21,11 @@
     </div>
 
     <div class="navbar-end">
-        <a href="/auth/login" class="navbar-item">{{i18n.nav.login}}</a>
+        {% if user %}
+          <a href="/auth/logout" class="navbar-item">{{i18n.nav.logout}}</a>
+        {% else %}
+          <a href="/auth/login" class="navbar-item">{{i18n.nav.login}}</a>
+        {% endif %}
     </div>
   </div>
 </nav>

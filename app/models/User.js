@@ -6,7 +6,10 @@ var UserSchema = new Schema(
     {
         first_name: { type: String, required: true, max: 50 },
         last_name: { type: String, required: true, max: 100 },
-        birth_date: { type: Date, required: true }
+        profile_image: { type: String },
+        birth_date: { type: Date, required: false },
+
+        googleID: { type: String }
     }
 );
 

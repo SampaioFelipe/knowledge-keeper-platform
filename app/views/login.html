@@ -9,7 +9,7 @@
     <title>Login</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/main.css" />
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 </head>
 
@@ -20,23 +20,31 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="card">
+                        <div class="card-image has-text-centered">
+                            <h1 class="title has-text-grey">Knowledge Keeper</h1>
+                        </div>
+
                         <div class="card-content">
                             <div class="field control">
                                 <a href="/auth/google" class="button is-info is-medium is-fullwidth">
-                                    <i class="fa fa-user"></i>
-                                    Google+
+                                    Sign-in with google
                                 </a>
                             </div>
-                            <form class="form">
 
-                                <div class="field control has-icon">
-                                    <input class="input" type="email" placeholder="Email">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
+                            {# <form class="form">
+
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-success" type="email" placeholder="Email">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>                               
 
                                 <div class="field control has-icon">
                                     <input class="input" type="password" placeholder="Password">
-                                    <i class="fa fa-lock"></i>
+                                    <i class="fas fa-lock"></i>
                                 </div>
 
                                 <div class="control">
@@ -47,12 +55,12 @@
 
                                 <div class="field control">
                                     <button class="button is-primary is-medium is-fullwidth">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fas fa-user"></i>
                                         Login
                                     </button>
                                 </div>
 
-                            </form>
+                            </form> #}
                         </div>
                     </div>
 

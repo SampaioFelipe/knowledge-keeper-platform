@@ -3,9 +3,12 @@ var router = express.Router();
 
 var content_editor = require('./content-editor');
 var auth = require('./auth');
+
+var isAuth = require('../lib/middlewares').isAuth;
+
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Knowledge Keeper' });
+router.get('/', isAuth, function (req, res, next) {
+  res.render('index', { title: 'Knowledge Keeper', user: req.user });
 });
 
 module.exports = function (app) {

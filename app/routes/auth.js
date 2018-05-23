@@ -7,7 +7,9 @@ router.get('/login', function (req, res) {
 })
 
 router.get('/logout', function (req, res) {
-    res.render('login');
+    req.logout();
+
+    res.redirect('/auth/login');
 })
 
 router.get('/google', passport.authenticate('google', {
@@ -15,8 +17,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/redirect', passport.authenticate('google'), function (req, res) {
-    res.send('');
+    res.redirect("/");
 });
-
 
 module.exports = router;

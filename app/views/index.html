@@ -1,8 +1,5 @@
-{% extends "layouts/default.html" %} 
+{% extends "layouts/default.html" %} {% block header %} {% endblock %} {% block body %}
 
-{% block header %} {% endblock %} 
-
-{% block body %}
 <div class="level">
     <div class="level-item has-text-centered">
         <div>
@@ -27,33 +24,55 @@
 </div>
 
 <main class="container">
-    <div class="tile is-ancestor">
-        <div class="tile is-4 is-vertical is-parent">
-            <div class="tile is-child box">
-                <p class="title">Users</p>
 
-                <div class="content">
-
+    <div class="columns">
+        <div class="column is-one-quarter">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-1by1">
+                        <img src="{{ user.profile_image }}" alt="Placeholder image">
+                    </figure>
                 </div>
+                <div class="card-content">
+                    <p class="title is-4">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+
             </div>
         </div>
-        <div class="tile is-vertical is-parent">
-            <div class="tile is-child box">
-                <p class="title">Topics</p>
 
-                <div class="content">
+        <div class=column>
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child box">
+                        <p class="title">Users</p>
 
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-vertical is-parent">
+                    <div class="tile is-child box">
+                        <p class="title">Topics</p>
+
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="tile is-child box">
+                        <p class="title">Contents</p>
+
+                        <div class="content">
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="tile is-child box">
-                <p class="title">Contents</p>
 
-                <div class="content">
-
-                </div>
-            </div>
         </div>
+
     </div>
+
 </main>
 
 {% endblock %}
