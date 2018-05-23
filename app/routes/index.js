@@ -1,35 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-var minify = require('html-minifier').minify;
+var content_editor = require('./content-editor');
+var auth = require('./auth');
 
-var elastic = require('../models/elasticsearch'); //elastic
+var isAuth = require('../lib/middlewares').isAuth;
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Knowledge Keeper' });
+router.get('/', isAuth, function (req, res, next) {
+  res.render('index', { title: 'Knowledge Keeper', user: req.user });
 });
 
-router.post('/save-my-page', function (req, res, next) {
-  var regions = JSON.parse(req.body.regions);
+module.exports = function (app) {
 
-  var document = {
-    title: req.body.title,
-    subtitle: req.body.subtitle,
-    content: minify(regions["0"], {
-      collapseWhitespace: true,
-      conservativeCollapse: true,
-      removeEmptyElements: true,
-      removeScriptTypeAttributes: true,
-      sortAttributes: true,
-      sortClassName: true
-    })
-  }
+  app.use('/auth', auth);
 
-  // elastic.addDocument(document).then(function (result) { res.json(result) });
+  app.use('/content-editor', content_editor);
 
-  res.end();
-
-});
-
-module.exports = router;
+  return router;
+}

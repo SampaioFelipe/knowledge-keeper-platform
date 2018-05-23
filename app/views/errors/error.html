@@ -1,0 +1,10 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+<div class="container">
+<h1 class="title">{{ message }}</h1>
+<h2 class="subtitle">Erro: {{ error.status }}</h2>
+<pre>{{ error.stack }}</pre>
+</div>
+
+{% endblock %}

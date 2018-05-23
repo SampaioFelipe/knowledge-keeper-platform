@@ -4,7 +4,9 @@ var path = require('path');
  * App requiments
  */
 var express = require('express');   // Web framework
-var routes =  require('./routes');  // URL routing specification
+var i18n = require('i18n-express'); // internationalization support
+
+var routes = require('./routes');  // URL routing specification
 var config = require('./config');
 
 /**
@@ -12,8 +14,7 @@ var config = require('./config');
  */
 var app = express();
 
-config.middlewares(app);
-config.view_engine(app);
+config.setup(app);
 
 /**
  * Staticfile folders
@@ -22,27 +23,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/content_tools', express.static(__basedir + '/node_modules/ContentTools/build/'));
 
 /**
+ * Internationalization
+ */
+app.use(i18n({
+  translationsPath: path.join(__dirname, 'i18n'),
+  siteLangs: ["en", "pt"],
+  textsVarName: 'i18n'
+}));
+
+/**
  * Routing mapping
  */
-app.use('/', routes);
+app.use('/', routes(app));
 
 
+/**
+ * Error handling
+ */
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error.html');
+  res.render('errors/error.html');
 });
 
 // elastic.indexExists().then(function (exists) {  

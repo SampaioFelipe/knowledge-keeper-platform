@@ -8,7 +8,7 @@
 
   <title>{{ title }}</title>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/main.css" />
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   {% block header %}
@@ -16,12 +16,12 @@
 </head>
 
 <body>
-  {# {% include "partials/navbar.html" %} #}
+  {% include "includes/navbar.html" %}
 
-  {% block content%}
+  {% block body%}
   {% endblock %}
 
-  {# {% include "partials/footer.html" %} #}
+  {# {% include "includes/footer.html" %} #}
 </body>
 
 {% block javascripts %}
