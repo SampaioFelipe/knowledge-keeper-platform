@@ -1,6 +1,6 @@
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth20');
-var User = require('../models/User');
+let passport = require('passport');
+let GoogleStrategy = require('passport-google-oauth20');
+let User = require('../models/User');
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -36,7 +36,5 @@ passport.use(
                     });
                 }
             });
-
-
         })
 );

@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var content_editor = require('./content-editor');
-var auth = require('./auth');
+let content_editor = require('./content-editor');
+let auth = require('./auth');
 
-var isAuth = require('../lib/middlewares').isAuth;
+let isAuthenticated = require('../lib/middlewares').isAuthenticated;
 
 /* GET home page. */
-router.get('/', isAuth, function (req, res, next) {
+router.get('/', isAuthenticated, function (req, res, next) {
   res.render('index', { title: 'Knowledge Keeper', user: req.user });
 });
 
