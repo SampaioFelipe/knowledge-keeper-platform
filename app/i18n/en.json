@@ -1,8 +1,8 @@
 {
     "nav": {
         "home": "Home",
+        "new_theme": "New Theme",
         "new_topic": "New Topic",
-        "new_content": "New Content",
         "login": "Login",
         "logout": "Logout"
     }

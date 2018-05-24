@@ -1,7 +1,7 @@
 var elasticsearch = require('elasticsearch');
 
 var elasticClient = new elasticsearch.Client({
-    host: 'https://487499c0kq:ep2fs0tlq9@knowledge-keeper-7477570439.us-east-1.bonsaisearch.net',
+    host: process.env.ELASTIC_URI || 'http://localhost:9200/',
     log: 'error'
 });
 
@@ -12,6 +12,7 @@ function indexExists() {
         index: indexName
     });
 }
+
 exports.indexExists = indexExists;
 
 function initIndex() {

@@ -1,3 +1,10 @@
+/* App Globals */
+global.__appdir = __dirname;
+
+global.appRequire = function(name) {
+  return require(__appdir + '/' + name);
+}
+
 var path = require('path');
 
 /**

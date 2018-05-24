@@ -1,6 +1,6 @@
-let passport = require('passport');
-let GoogleStrategy = require('passport-google-oauth20');
-let User = require('../models/User');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth20');
+var User = appRequire('models/User');
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -30,7 +30,8 @@ passport.use(
                         first_name: profile.name.givenName,
                         last_name: profile.name.familyName,
                         profile_image: profile._json.image.url.split('?')[0],
-                        googleID: profile.id
+                        googleID: profile.id,
+                        email: profile.emails[0].value
                     }).save().then(function (newUser) {
                         done(null, newUser);
                     });

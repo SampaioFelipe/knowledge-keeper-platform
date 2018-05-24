@@ -7,7 +7,7 @@ var minify = require('html-minifier').minify;
 router.get('/', function (req, res) {
 
     res.render('content-editor/index', { title: 'Content Editor' });
-})
+});
 
 router.post('/save-my-page', function (req, res, next) {
     var regions = JSON.parse(req.body.regions);

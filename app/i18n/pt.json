@@ -1,8 +1,9 @@
 {
     "nav": {
         "home": "Inicial",
+        "new_theme": "Novo Tema",
         "new_topic": "Novo Tópico",
-        "new_content": "Novo Conteúdo",
-        "login": "Entrar"
+        "login": "Entrar",
+        "logout": "Sair"
     }
 }

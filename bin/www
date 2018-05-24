@@ -2,14 +2,15 @@
 require('dotenv').config();
 
 var path = require('path');
-var config = require('../config');
 
 /**
- * Global variables
+ * Project Globals
  */
+global.__basedir = path.dirname(__dirname);
 
-global.__basedir = config.basedir;
-global.__appdir = config.appdir;
+global.rootRequire = function(name) {
+  return require(__basedir + '/' + name);
+}
 
 /**
  * Initialize the app
