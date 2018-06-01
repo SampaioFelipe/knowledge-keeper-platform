@@ -21,10 +21,18 @@
   {% block body%}
   {% endblock %}
 
+  <div id="modal_theme" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <!-- Any other Bulma elements you want -->
+    </div>
+    <button class="modal-close is-large" aria-label="close" data-toggle="modal_theme"></button>
+  </div>
+
   {# {% include "includes/footer.html" %} #}
 </body>
 
-{% block javascripts %}
+{% block js %}
 {% endblock %}
 
 {# Enable the hamburguer button in the menu #}
@@ -52,6 +60,26 @@
       });
     });
   }
+
+  document.getElementById('toggle_modal').addEventListener('click', function (event){
+    var modals = document.getElementById(event.srcElement.dataset.toggle);
+    modals.classList.toggle("is-active")
+  });
+
+  var close_modal = Array.prototype.slice.call(document.getElementsByClassName('modal-close'), 0);
+
+  close_modal.forEach(function (e) {
+    e.addEventListener('click', function (e){
+      var modal = document.getElementById(e.srcElement.dataset.toggle);
+      modal.classList.toggle("is-active")
+    });
+
+  });
+
+  // addEventListener('click', function (event){
+  //   var modals = document.getElementById(event.srcElement.dataset.toggle);
+  //   modals.classList.toggle("is-active")
+  // });
 
 });
 </script>

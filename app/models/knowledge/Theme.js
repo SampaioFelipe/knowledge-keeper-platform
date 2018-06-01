@@ -1,10 +1,10 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let ThemeSchema = new Schema(
+const ThemeSchema = new Schema(
     {
-        title: { type: String, require: true },
+        title: { type: String, required: true },
         description: String,
 
         owners: [

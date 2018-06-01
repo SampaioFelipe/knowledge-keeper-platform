@@ -3,7 +3,7 @@
 	"file": "main.css",
 	"sources": [
 		"sass/main.sass",
-		"sass/_variables.sass",
+		"sass/_variables.scss",
 		"../../../node_modules/bulma/sass/utilities/initial-variables.sass",
 		"../../../node_modules/bulma/sass/utilities/functions.sass",
 		"../../../node_modules/bulma/bulma.sass",
